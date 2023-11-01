@@ -21,8 +21,8 @@ from sklearn.naive_bayes import GaussianNB
 # Building Skeleton for Web App
 selected = option_menu(
        menu_title = None ,#"Main Menu",
-       options = ["Home","Model","Dashboard"],
-       icons = ["house","robot","wave"],
+       options = ["Home","Model"],
+       icons = ["house","robot"],
        menu_icon = "menu-button",
        default_index = 0,
        orientation = "horizontal",  #to make the menubar horizontal 
