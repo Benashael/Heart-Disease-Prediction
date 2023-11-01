@@ -39,7 +39,7 @@ if selected == "Home":
         st.write('Cardiovascular diseases, including heart disease, remain a significant global health concern and a leading cause of mortality. Early detection and prediction of heart disease can play a pivotal role in improving patient outcomes and reducing the burden on healthcare systems. This project aims to develop a robust and accurate heart disease prediction model using machine learning technique called classification.')
         st.subheader('This is a sample Dataset:')
         st.text("In the column target, 1 = Has heart disease & 0 = Does not have heart disease")
-        df = pd.read_csv("C:/Users/Arul Selvaraj/3D Objects/Heart Price Prediction/heart_disease_data.csv")
+        df = pd.read_csv("heart_disease_data.csv")
         st.write(df)
 
 # Creating outline for MODEL
