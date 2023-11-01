@@ -46,24 +46,24 @@ if selected == "Home":
 if selected == "Model":
     st.title('Heart Disease Prediction')
     st.subheader('Enter the Details')
- 
+
     df = pd.read_csv("heart_disease_data.csv")
     X = df.drop(columns='target', axis=1)
     Y = df['target']
-    
+
     model = st.selectbox('Choose a Model',
-      ('Logistic Regression', 'Random Forest Classifier', 'Naive Bayes Classifier'))
-    
-    if model =='Logistic Regression':
+        ('Logistic Regression', 'Random Forest Classifier', 'Naive Bayes Classifier'))
+
+    if model == 'Logistic Regression':
         m = LogisticRegression()
         m.fit(X, Y)
-    elif model =='Random Forest Classifier':
+    elif model == 'Random Forest Classifier':
         m = RandomForestClassifier(n_estimators=100)
         m.fit(X, Y)
     else:
         m = GaussianNB()
         m.fit(X, Y)
-        
+
     # To return predicted results
     def hdp(input_data):
         na = np.asarray(input_data)
@@ -76,7 +76,7 @@ if selected == "Model":
             return 'The patient does not have heart disease'
         else:
             return 'The patient has heart disease'
-        
+
     # To get input from the user
     def main():
         age = st.text_input('Age')
@@ -92,65 +92,70 @@ if selected == "Model":
         slope_1 = st.selectbox('Slope Type', ('Upsloping', 'Flat', 'Downsloping'))
         ca = st.selectbox('Number of Major Vessels', (0, 1, 2, 3))
         thal_1 = st.selectbox('Type of Thalassemia defect', ('Normal', 'Fixed Defect', 'Reversable Defect', 'Genetic Defect'))
-        
+
         # for sex column
-        if sex_1=='Male':
+        if sex_1 == 'Male':
             sex = 1
         else:
             sex = 2
-            
+
         # for cp column
-        if cp_1=='Typical Angina':
+        if cp_1 == 'Typical Angina':
             cp = 0
-        elif cp_1=='Atypical Angina':
+        elif cp_1 == 'Atypical Angina':
             cp = 1
-        elif cp_1=='Non Aanginal Pain':
+        elif cp_1 == 'Non Aanginal Pain':
             cp = 2
         else:
             cp = 3
-            
+
         # for fbs column
-        if fbs_1=='Yes':
+        if fbs_1 == 'Yes':
             fbs = 1
         else:
             fbs = 0
-            
+
         # for restecg column
-        if restecg_1=='ASA Grade I':
+        if restecg_1 == 'ASA Grade I':
             restecg = 0
-        elif restecg_1=='ASA Grade II':
+        elif restecg_1 == 'ASA Grade II':
             restecg = 1
         else:
             restecg = 2
-            
+
         # for exang column
-        if exang_1=='Yes':
+        if exang_1 == 'Yes':
             exang = 1
         else:
             exang = 0
-            
+
         # for slope column
-        if slope_1=='Upsloping':
+        if slope_1 == 'Upsloping':
             slope = 0
-        elif slope_1=='Flat':
+        elif slope_1 == 'Flat':
             slope = 1
         else:
             slope = 2
-            
+
         # for thal column
-        if thal_1=='Normal':
+        if thal_1 == 'Normal':
             thal = 0
-        elif thal_1=='Fixed Defect':
+        elif thal_1 == 'Fixed Defect':
             thal = 1
-        elif thal_1=='Reversable Defect':
+        elif thal_1 == 'Reversable Defect':
             thal = 2
         else:
             thal = 3
-            
-        hd=''
-        
+
+        hd = ''
+
         # To establish connection between buttons
         if st.button('Get Results'):
             hd = hdp([age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal])
             st.success(hd)
+
+    # To run app
+    if __name__ == '__main__':
+        main()
+
             
