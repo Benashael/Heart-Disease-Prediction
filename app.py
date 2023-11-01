@@ -93,59 +93,14 @@ if selected == "Model":
         ca = st.selectbox('Number of Major Vessels', (0, 1, 2, 3))
         thal_1 = st.selectbox('Type of Thalassemia defect', ('Normal', 'Fixed Defect', 'Reversable Defect', 'Genetic Defect'))
 
-        # for sex column
-        if sex_1 == 'Male':
-            sex = 1
-        else:
-            sex = 2
-
-        # for cp column
-        if cp_1 == 'Typical Angina':
-            cp = 0
-        elif cp_1 == 'Atypical Angina':
-            cp = 1
-        elif cp_1 == 'Non Aanginal Pain':
-            cp = 2
-        else:
-            cp = 3
-
-        # for fbs column
-        if fbs_1 == 'Yes':
-            fbs = 1
-        else:
-            fbs = 0
-
-        # for restecg column
-        if restecg_1 == 'ASA Grade I':
-            restecg = 0
-        elif restecg_1 == 'ASA Grade II':
-            restecg = 1
-        else:
-            restecg = 2
-
-        # for exang column
-        if exang_1 == 'Yes':
-            exang = 1
-        else:
-            exang = 0
-
-        # for slope column
-        if slope_1 == 'Upsloping':
-            slope = 0
-        elif slope_1 == 'Flat':
-            slope = 1
-        else:
-            slope = 2
-
-        # for thal column
-        if thal_1 == 'Normal':
-            thal = 0
-        elif thal_1 == 'Fixed Defect':
-            thal = 1
-        elif thal_1 == 'Reversable Defect':
-            thal = 2
-        else:
-            thal = 3
+        # Convert user inputs to numeric values
+        sex = 1 if sex_1 == 'Male' else 0
+        cp = ['Typical Angina', 'Atypical Angina', 'Non Aanginal Pain', 'Asymptomatic'].index(cp_1)
+        fbs = 1 if fbs_1 == 'Yes' else 0
+        restecg = ['ASA Grade I', 'ASA Grade II', 'ASA Grade III'].index(restecg_1)
+        exang = 1 if exang_1 == 'Yes' else 0
+        slope = ['Upsloping', 'Flat', 'Downsloping'].index(slope_1)
+        thal = ['Normal', 'Fixed Defect', 'Reversable Defect', 'Genetic Defect'].index(thal_1)
 
         hd = ''
 
